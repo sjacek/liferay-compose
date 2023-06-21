@@ -78,12 +78,12 @@ services:
       KEYCLOAK_IMPORT: /opt/keycloak/data/import/liferay-realm.json
       KC_HOSTNAME: ${SSO_HOSTNAME:-localhost}
 #     KC_HOSTNAME_STRICT: false
-      KC_HOSTNAME_PORT: ${SSO_PORT:-8443}
+      KC_HOSTNAME_PORT: ${SSO_PORT:-6543}
 #     KC_HTTP_ENABLED: "true"
 #     KC_HTTP_RELATIVE_PATH: /auth
 #     KC_HOSTNAME_PORT: 8180
 #     KC_PROXY: edge
-      KC_HTTPS_PORT: ${SSO_PORT:-8443}
+#     KC_HTTPS_PORT: 8443
       KC_DB_URL: 'jdbc:postgresql://postgres/liferay'
 #     KC_DB_USERNAME: postgres
 #     KC_DB_PASSWORD: postgres
