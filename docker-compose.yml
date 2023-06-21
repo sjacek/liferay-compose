@@ -15,6 +15,7 @@ services:
     restart: unless-stopped
     ports:
       - "6080:8080"
+      - "6201:9201"
     environment:
       LIFERAY_INCLUDE_MINUS_AND_MINUS_OVERRIDE: portal-developer.properties
       LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_DRIVER_UPPERCASEC_LASS_UPPERCASEN_AME: org.postgresql.Driver
@@ -29,6 +30,7 @@ services:
     volumes:
       - liferay_data:/opt/liferay/data
       - ./liferay/files:/mnt/liferay/files
+      - ./deploy:/opt/liferay/deploy
     depends_on:
       - postgres
       - sso
