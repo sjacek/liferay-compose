@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=liferay/portal:7.4.3.81-ga81
+ARG BASE_IMAGE=liferay/dxp:7.4.13-u81
 FROM ${BASE_IMAGE}
 
 USER root
