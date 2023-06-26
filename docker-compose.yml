@@ -8,10 +8,7 @@ volumes:
 services:
   liferay:
     build:
-      dockerfile: liferay/Dockerfile
-      context: .
-      args:
-        - BASE_IMAGE=liferay/portal:7.4.3.81-ga81
+      context: ./liferay
     restart: unless-stopped
     ports:
       - "6080:8080"
@@ -52,33 +49,31 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "6452:5432"
+      - "6432:5432"
   #    command: [ "postgres", "-c", "log_statement=all" ]
 
   mail:
     image: rnwood/smtp4dev:v3
     restart: unless-stopped
     ports:
-      - "6000:80"
+      - "5000:80"
     volumes:
       - smtp_data:/smtp4dev
 
   sso:
     build:
       context: ./keycloak
-      args:
-        - BASE_IMAGE=quay.io/keycloak/keycloak:21.1.1
 #    image: quay.io/keycloak/keycloak
     restart: unless-stopped
     ports:
-      - "6543:8443"
+      - "${SSO_PORT:-6443}:8443"
     environment:
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
       KEYCLOAK_IMPORT: /opt/keycloak/data/import/liferay-realm.json
       KC_HOSTNAME: ${SSO_HOSTNAME:-localhost}
 #     KC_HOSTNAME_STRICT: false
-      KC_HOSTNAME_PORT: ${SSO_PORT:-6543}
+      KC_HOSTNAME_PORT: ${SSO_PORT:-6443}
 #     KC_HTTP_ENABLED: "true"
 #     KC_HTTP_RELATIVE_PATH: /auth
 #     KC_HOSTNAME_PORT: 8180
