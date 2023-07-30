@@ -1,7 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Linux template
-*~
-
 # temporary files which can be created if a process still has a handle open of a deleted file
 .fuse_hidden*
 
@@ -204,3 +202,4 @@ $RECYCLE.BIN/
 *.lnk
 
 /.env
+/deploy/

@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=liferay/dxp:7.4.13-u81
+ARG BASE_IMAGE=liferay/dxp:7.4.13-u87
 FROM ${BASE_IMAGE}
 
 USER root
